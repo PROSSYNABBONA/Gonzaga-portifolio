@@ -58,12 +58,7 @@ function initSmoothScrolling() {
                     behavior: 'smooth'
                 });
                 
-                // Close mobile menu if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    const navbarToggler = document.querySelector('.navbar-toggler');
-                    navbarToggler.click();
-                }
+                // Keep mobile menu state unchanged; user will close via X
             }
         });
     });
@@ -1195,16 +1190,27 @@ function initMobileNavToggle() {
             }
         });
         
-        // Close menu when clicking on nav links
+        // Sync button states with Bootstrap collapse events
+        navbarCollapse.addEventListener('shown.bs.collapse', () => {
+            if (window.innerWidth <= 991) {
+                navbarToggler.style.display = 'none';
+                navbarClose.style.display = 'flex';
+            }
+        });
+        navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+            if (window.innerWidth <= 991) {
+                navbarToggler.style.display = 'block';
+                navbarClose.style.display = 'none';
+            }
+        });
+        
+        // Keep menu open on nav link taps (user closes with X)
         const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 991) {
-                    setTimeout(() => {
-                        navbarCollapse.classList.remove('show');
-                        navbarToggler.classList.remove('hide');
-                        navbarClose.classList.remove('show');
-                    }, 100);
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 991 && this.dataset.close !== 'true') {
+                    // Prevent Bootstrap from auto-collapsing via default behavior
+                    // (We do nothing here so the menu stays open)
                 }
             });
         });
