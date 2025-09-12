@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Gonzaga - Professional Veterinary Services | Farm Animal Health | Uganda</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional veterinary services by Dr. Gonzaga in Uganda. Specializing in farm animal health, artificial insemination, emergency surgery, vaccination, and reproductive management for cattle, goats, pigs, and poultry.">
+    <meta name="keywords" content="veterinary services Uganda, farm animal health, artificial insemination, emergency veterinary care, cattle health, goat health, pig health, poultry health, vaccination services, reproductive management, Dr. Gonzaga">
+    <meta name="author" content="Dr. Gonzaga">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Dr. Gonzaga - Professional Veterinary Services">
+    <meta property="og:description" content="Expert veterinary care for farm animals in Uganda. Specializing in artificial insemination, emergency surgery, vaccination, and reproductive management.">
+    <meta property="og:image" content="images/The man.jpg">
+    <meta property="og:url" content="https://drgonzaga.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dr. Gonzaga - Professional Veterinary Services">
+    <meta name="twitter:description" content="Expert veterinary care for farm animals in Uganda. Specializing in artificial insemination, emergency surgery, vaccination, and reproductive management.">
+    <meta name="twitter:image" content="images/The man.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://drgonzaga.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VeterinaryClinic",
+        "name": "Dr. Gonzaga Veterinary Services",
+        "description": "Professional veterinary services for farm animals in Uganda",
+        "url": "https://drgonzaga.com",
+        "telephone": "+256751006759 / +256771685477",
+        "email": "bakulumpagigonzaga@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kampala",
+            "addressCountry": "Uganda"
+        },
+        "openingHours": "Mo-Fr 08:00-18:00,Sa 09:00-16:00",
+        "priceRange": "UGX 180,000 - UGX 720,000",
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "0.3476",
+                "longitude": "32.5825"
+            },
+            "geoRadius": "50000"
+        }
+    }
+    </script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-stethoscope me-2"></i>Dr. Gonzaga
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="navbar-close" type="button" aria-label="Close navigation">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-user-md me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-stethoscope me-1"></i>Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#services">All Services</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Core Services</h6></li>
+                            <li><a class="dropdown-item" href="#services" data-service="artificial-insemination">Artificial Insemination</a></li>
+                            <li><a class="dropdown-item" href="#services" data-service="reproductive-disorders">Reproductive Disorders</a></li>
+                            <li><a class="dropdown-item" href="#services" data-service="dystocia-csection">Dystocia & C-Section</a></li>
+                            <li><a class="dropdown-item" href="#services" data-service="vaccination">Vaccination Services</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Specialized Services</h6></li>
+                            <li><a class="dropdown-item" href="#services" data-service="animal-surgeries">Animal Surgeries</a></li>
+                            <li><a class="dropdown-item" href="#services" data-service="disease-diagnosis">Disease Diagnosis</a></li>
+                            <li><a class="dropdown-item" href="#services" data-service="farm-monitoring">Farm Monitoring</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="portfolioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-briefcase me-1"></i>My Work
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                            <li><a class="dropdown-item" href="#case-studies">Case Studies</a></li>
+                            <li><a class="dropdown-item" href="#gallery">Gallery</a></li>
+                            <li><a class="dropdown-item" href="#testimonials">Testimonials</a></li>
+                            <li><a class="dropdown-item" href="#statistics">My Impact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-book me-1"></i>Resources
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="#videos">Educational Videos</a></li>
+                            <li><a class="dropdown-item" href="#faq">FAQ</a></li>
+                            <li><a class="dropdown-item" href="#pricing">Pricing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <i class="fas fa-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold text-white mb-4">
+                            My Professional Veterinary Services
+                        </h1>
+                        <p class="lead text-white mb-4">
+                            I provide expert veterinary care for farm animals, specializing in reproductive health, 
+                            disease diagnosis, and comprehensive animal healthcare solutions.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-light btn-lg me-3">My Services</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="images/Diease Diognosis.jpg" alt="Dr. Gonzaga" class="img-fluid rounded-circle shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mb-5">About Me</h2>
+                    <p class="lead mb-4">
+                        I am a dedicated veterinary professional with extensive experience in farm animal healthcare, 
+                        reproductive management, and disease prevention. I am committed to providing the highest 
+                        quality veterinary services to ensure the health and productivity of your livestock.
+                    </p>
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <div class="about-feature">
+                                <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                                <h5>Professional Training</h5>
+                                <p>Extensive veterinary education and continuous professional development</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="about-feature">
+                                <i class="fas fa-heartbeat fa-3x text-primary mb-3"></i>
+                                <h5>Animal Health</h5>
+                                <p>Comprehensive healthcare solutions for all types of farm animals</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="about-feature">
+                                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                                <h5>Community Service</h5>
+                                <p>Dedicated to supporting farmers and livestock owners in the community</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">My Services</h2>
+                    <p class="lead">I provide comprehensive veterinary care for all your animal health needs</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Service 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="artificial-insemination" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h5>Artificial Insemination</h5>
+                        <p>I provide professional artificial insemination services to improve breeding efficiency and genetic quality of your livestock.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="reproductive-disorders" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h5>Reproductive Disorders Management</h5>
+                        <p>I provide expert diagnosis and treatment of reproductive health issues in farm animals to maximize breeding success.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="dystocia-csection" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h5>Dystocia & C-Section Management</h5>
+                        <p>I provide emergency obstetric care including dystocia management and cesarean sections for difficult births.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="vaccination" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <h5>Vaccination Services</h5>
+                        <p>I provide comprehensive vaccination programs for cattle, poultry, dogs, and cats to prevent disease outbreaks.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="farm-monitoring" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>Farm Monitoring & Evaluation</h5>
+                        <p>Regular farm visits and health assessments to ensure optimal animal welfare and productivity.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="reproductive-consultations" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h5>Reproductive Consultations</h5>
+                        <p>Expert advice and consultation on reproductive problems and breeding strategies for farm animals.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="animal-surgeries" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h5>Animal Surgeries</h5>
+                        <p>Professional surgical procedures for various animal health conditions and emergency interventions.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="feed-quality" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h5>Feed Quality Monitoring</h5>
+                        <p>Assessment and analysis of feed quality to ensure optimal nutrition for your livestock.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="herd-evaluation" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h5>Herd Evaluation</h5>
+                        <p>Comprehensive evaluation of herd health, productivity, and breeding potential assessment.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 10 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="disease-diagnosis" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h5>Disease Diagnosis & Treatment</h5>
+                        <p>Advanced diagnostic services and treatment for cattle, goats, pigs, dogs, and cats.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 11 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="records-management" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h5>Records Management</h5>
+                        <p>Professional maintenance of health records and documentation for your livestock operations.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 12 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="postmortem-examination" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h5>Postmortem Examination</h5>
+                        <p>Thorough postmortem examinations to determine cause of death and prevent future health issues.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 13 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card h-100" data-service="extension-services" style="cursor: pointer;">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h5>Extension Services</h5>
+                        <p>Educational programs and training for farmers on best practices in animal health and management.</p>
+                        <div class="service-read-more">
+                            <i class="fas fa-info-circle"></i> Click for more details
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">My Work in Action</h2>
+                    <p class="lead">See my professional veterinary services in practice</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Diease Diognosis.jpg" alt="Disease Diagnosis" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Disease Diagnosis</h5>
+                            <p>Advanced diagnostic procedures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Vaccination.jpg" alt="Vaccination Services" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Vaccination Services</h5>
+                            <p>Protecting animal health</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Pregnancy diagonsis.jpg" alt="Pregnancy Diagnosis" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Pregnancy Diagnosis</h5>
+                            <p>Reproductive health monitoring</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Farm visits.jpg" alt="Farm Visits" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Farm Visits</h5>
+                            <p>On-site veterinary care</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Operations.jpg" alt="Surgical Operations" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Surgical Operations</h5>
+                            <p>Professional surgical care</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Extension services and services to farmers.jpg" alt="Extension Services" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Extension Services</h5>
+                            <p>Farmer education and support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Ear tagging.jpg" alt="Ear Tagging" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Ear Tagging</h5>
+                            <p>Animal identification services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Weighing.jpg" alt="Animal Weighing" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Animal Weighing</h5>
+                            <p>Health monitoring and assessment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Poutry farming.jpg" alt="Poultry Farming" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Poultry Farming</h5>
+                            <p>Specialized poultry care</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/Swine Diease Diognosis.jpg" alt="Swine Disease Diagnosis" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Swine Disease Diagnosis</h5>
+                            <p>Pig health assessment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="lead">I'm ready to provide professional veterinary care for your animals</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <span>0751006759 / 0771685477</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>0751006759</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <span>bakulumpagigonzaga@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Address</strong>
+                                <span>Kampala, Uganda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="office-hours">
+                        <h4>Office Hours</h4>
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">8:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">Emergency Only</span>
+                        </div>
+                        <div class="hours-item emergency">
+                            <span class="day">24/7 Emergency</span>
+                            <span class="time">+256 751 006759</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-form">
+                        <h4>Book Appointment</h4>
+                        <form id="appointmentForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Your Phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" required>
+                                    <option value="">Select Service Needed</option>
+                                    <option value="consultation">General Consultation</option>
+                                    <option value="artificial-insemination">Artificial Insemination</option>
+                                    <option value="reproductive-disorders">Reproductive Disorders</option>
+                                    <option value="emergency-surgery">Emergency Surgery</option>
+                                    <option value="vaccination">Vaccination</option>
+                                    <option value="farm-visit">Farm Visit</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" required>
+                                    <option value="">Preferred Time</option>
+                                    <option value="morning">Morning (8AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                                    <option value="evening">Evening (4PM - 6PM)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="3" placeholder="Additional Notes"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Book Appointment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title text-white">My Impact</h2>
+                    <p class="lead">Numbers that speak for my commitment to animal health</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item text-center">
+                        <div class="stat-number" data-target="300">0</div>
+                        <div class="stat-label">Animals Treated</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item text-center">
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item text-center">
+                        <div class="stat-number" data-target="200">0</div>
+                        <div class="stat-label">Successful Surgeries</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item text-center">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Farms Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">My Success Stories</h2>
+                    <p class="lead">Real cases showcasing my expertise and successful treatments</p>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="case-study-card">
+                        <div class="case-study-images">
+                            <div class="before-after">
+                                <div class="image-container">
+                                    <img src="before After images/Before cattle surgery.jpg" alt="Cattle before surgery" class="img-fluid">
+                                    <div class="image-label">Before</div>
+                                </div>
+                                <div class="image-container">
+                                    <img src="before After images/After cattle surgery.jpg" alt="Cattle after surgery" class="img-fluid">
+                                    <div class="image-label">After</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-content">
+                            <h5>Cattle Surgery Success</h5>
+                            <p class="case-description">Performed surgical correction for penile duplication (two penises) in cattle. Full recovery with normal urination and reproductive function.</p>
+                            <div class="case-details">
+                                <span class="case-tag">Surgery</span>
+                            </div>
+                            <div class="case-results">
+                                <div class="result-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Fast Recovery</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>Condition Stabilized</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="case-study-card">
+                        <div class="case-study-images">
+                            <div class="before-after">
+                                <div class="image-container">
+                                    <img src="before After images/Dog before.jpg" alt="Dog before treatment" class="img-fluid">
+                                    <div class="image-label">Before</div>
+                                </div>
+                                <div class="image-container">
+                                    <img src="before After images/Dog after.jpg" alt="Dog after treatment" class="img-fluid">
+                                    <div class="image-label">After</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-content">
+                            <h5>Dog Eyesight Correction</h5>
+                            <p class="case-description">Performed a corrective eye procedure to restore the dog's vision, leading to improved sight and daily activity.</p>
+                            <div class="case-details">
+                                <span class="case-tag">Small Animal</span>
+                                <span class="case-tag">Eye Care</span>
+                            </div>
+                            <div class="case-results">
+                                <div class="result-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Infection Cleared</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-smile"></i>
+                                    <span>Quality of Life Improved</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="case-study-card">
+                        <div class="case-study-images">
+                            <div class="before-after">
+                                <div class="image-container">
+                                    <img src="before After images/during surgery.jpg" alt="During surgery" class="img-fluid">
+                                    <div class="image-label">Before</div>
+                                </div>
+                                <div class="image-container">
+                                    <img src="before After images/after surgery.jpg" alt="After surgery" class="img-fluid">
+                                    <div class="image-label">After</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-content">
+                            <h5>Emergency Surgery Outcome</h5>
+                            <p class="case-description">Performed emergency surgical intervention for a critical case. Post-operative care ensured stable recovery and return to normal function.</p>
+                            <div class="case-details">
+                                <span class="case-tag">Emergency</span>
+                                <span class="case-tag">Surgery</span>
+                            </div>
+                            <div class="case-results">
+                                <div class="result-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Successful Procedure</span>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                    <span>Stable Recovery</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">What My Clients Say</h2>
+                    <p class="lead">Testimonials from satisfied farmers and pet owners</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Dr. Gonzaga's expertise in reproductive health saved our entire breeding program. His artificial insemination services have increased our herd quality significantly."</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"The emergency C-section Dr. Gonzaga performed on our cow was flawless. His quick response and surgical skills saved both mother and calf."</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Professional, reliable, and always available when we need him. His vaccination programs have kept our poultry healthy for years."</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">My Consultation Packages</h2>
+                    <p class="lead">Choose the right package for your needs</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Basic Consultation</h4>
+                            <div class="price">
+                                <span class="currency">UGX</span>
+                                <span class="amount">180,000</span>
+                                <span class="period">/visit</span>
+                            </div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Health assessment</li>
+                                <li><i class="fas fa-check"></i> Basic treatment</li>
+                                <li><i class="fas fa-check"></i> Written report</li>
+                                <li><i class="fas fa-check"></i> Follow-up call</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-primary w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h4>Farm Package</h4>
+                            <div class="price">
+                                <span class="currency">UGX</span>
+                                <span class="amount">720,000</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Monthly farm visits</li>
+                                <li><i class="fas fa-check"></i> Vaccination program</li>
+                                <li><i class="fas fa-check"></i> Health monitoring</li>
+                                <li><i class="fas fa-check"></i> Emergency support</li>
+                                <li><i class="fas fa-check"></i> Records management</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Emergency Service</h4>
+                            <div class="price">
+                                <span class="currency">UGX</span>
+                                <span class="amount">360,000</span>
+                                <span class="period">/hour</span>
+                            </div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> 24/7 availability</li>
+                                <li><i class="fas fa-check"></i> Emergency surgery</li>
+                                <li><i class="fas fa-check"></i> Immediate response</li>
+                                <li><i class="fas fa-check"></i> Critical care</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-primary w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/Articles Section -->
+    <section id="articles" class="py-5 bg-light" style="display:none">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">My Veterinary Insights & Tips</h2>
+                    <p class="lead">My expert advice and latest information for animal health and farm management</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/Vaccination.jpg" alt="Vaccination Schedule" class="img-fluid">
+                            <div class="article-category">Preventive Care</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i> December 15, 2024
+                                </span>
+                                <span class="article-read-time">
+                                    <i class="fas fa-clock"></i> 5 min read
+                                </span>
+                            </div>
+                            <h5>Essential Vaccination Schedule for Cattle</h5>
+                            <p>Learn about the most important vaccinations your cattle need throughout the year to maintain optimal health and prevent disease outbreaks.</p>
+                            <div class="article-tags">
+                                <span class="tag">Vaccination</span>
+                                <span class="tag">Cattle Health</span>
+                                <span class="tag">Prevention</span>
+                            </div>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/Pregnancy diagonsis.jpg" alt="Pregnancy Care" class="img-fluid">
+                            <div class="article-category">Reproductive Health</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i> December 10, 2024
+                                </span>
+                                <span class="article-read-time">
+                                    <i class="fas fa-clock"></i> 7 min read
+                                </span>
+                            </div>
+                            <h5>Signs of Pregnancy in Farm Animals</h5>
+                            <p>Understanding the early signs of pregnancy in your livestock can help ensure proper care and nutrition for both mother and offspring.</p>
+                            <div class="article-tags">
+                                <span class="tag">Pregnancy</span>
+                                <span class="tag">Livestock</span>
+                                <span class="tag">Breeding</span>
+                            </div>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/Farm visits.jpg" alt="Winter Care" class="img-fluid">
+                            <div class="article-category">Seasonal Care</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i> December 5, 2024
+                                </span>
+                                <span class="article-read-time">
+                                    <i class="fas fa-clock"></i> 6 min read
+                                </span>
+                            </div>
+                            <h5>Winter Care for Livestock</h5>
+                            <p>Essential tips for keeping your animals healthy and comfortable during the cold winter months, including shelter and nutrition advice.</p>
+                            <div class="article-tags">
+                                <span class="tag">Winter Care</span>
+                                <span class="tag">Livestock</span>
+                                <span class="tag">Seasonal</span>
+                            </div>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/Diease Diognosis.jpg" alt="Disease Prevention" class="img-fluid">
+                            <div class="article-category">Disease Management</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i> November 28, 2024
+                                </span>
+                                <span class="article-read-time">
+                                    <i class="fas fa-clock"></i> 8 min read
+                                </span>
+                            </div>
+                            <h5>Common Livestock Diseases and Prevention</h5>
+                            <p>Identify and prevent common diseases that affect farm animals, including symptoms, treatment options, and preventive measures.</p>
+                            <div class="article-tags">
+                                <span class="tag">Disease Prevention</span>
+                                <span class="tag">Livestock Health</span>
+                                <span class="tag">Treatment</span>
+                            </div>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/Operations.jpg" alt="Surgical Care" class="img-fluid">
+                            <div class="article-category">Surgical Care</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i> November 20, 2024
+                                </span>
+                                <span class="article-read-time">
+                                    <i class="fas fa-clock"></i> 6 min read
+                                </span>
+                            </div>
+                            <h5>When to Seek Emergency Veterinary Care</h5>
+                            <p>Learn to recognize signs that require immediate veterinary attention and understand when emergency surgery might be necessary.</p>
+                            <div class="article-tags">
+                                <span class="tag">Emergency Care</span>
+                                <span class="tag">Surgery</span>
+                                <span class="tag">Urgent Care</span>
+                            </div>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/Extension services and services to farmers.jpg" alt="Farm Management" class="img-fluid">
+                            <div class="article-category">Farm Management</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i> November 15, 2024
+                                </span>
+                                <span class="article-read-time">
+                                    <i class="fas fa-clock"></i> 5 min read
+                                </span>
+                            </div>
+                            <h5>Best Practices for Farm Animal Welfare</h5>
+                            <p>Comprehensive guide to maintaining high standards of animal welfare on your farm, including housing, nutrition, and health monitoring.</p>
+                            <div class="article-tags">
+                                <span class="tag">Animal Welfare</span>
+                                <span class="tag">Farm Management</span>
+                                <span class="tag">Best Practices</span>
+                            </div>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center mt-4">
+                    <a href="#" class="btn btn-outline-primary btn-lg">View All Articles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Content Section -->
+    <section id="videos" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">My Educational Videos</h2>
+                    <p class="lead">Watch my educational content and see my work in action</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/Operations.jpg" alt="Surgical Procedure" class="img-fluid">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">5:30</div>
+                        </div>
+                        <div class="video-content">
+                            <h5>Emergency C-Section Procedure</h5>
+                            <p>Watch Dr. Gonzaga perform an emergency cesarean section on a cow with dystocia, demonstrating professional surgical techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/Vaccination.jpg" alt="Vaccination Process" class="img-fluid">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">3:45</div>
+                        </div>
+                        <div class="video-content">
+                            <h5>Proper Vaccination Techniques</h5>
+                            <p>Learn the correct way to administer vaccinations to livestock, including safety protocols and best practices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/Farm visits.jpg" alt="Farm Visit" class="img-fluid">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">7:20</div>
+                        </div>
+                        <div class="video-content">
+                            <h5>Farm Health Assessment</h5>
+                            <p>Join Dr. Gonzaga on a farm visit to see how he conducts comprehensive health assessments and provides recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/Pregnancy diagonsis.jpg" alt="Pregnancy Diagnosis" class="img-fluid">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">4:15</div>
+                        </div>
+                        <div class="video-content">
+                            <h5>Pregnancy Diagnosis in Cattle</h5>
+                            <p>Learn about different methods of pregnancy diagnosis in cattle and when to use each technique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center mt-4">
+                    <a href="#" class="btn btn-outline-primary btn-lg">View All Videos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="lead">Common questions about my veterinary services</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                    What animals do you treat?
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We treat cattle, goats, pigs, poultry, dogs, and cats. Our services cover both farm animals and companion animals.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                    Do you provide emergency services?
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we provide 24/7 emergency veterinary services. Call us anytime for urgent animal health issues.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                    How do I schedule an appointment?
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You can schedule an appointment by calling us directly or using the contact form on this website. We'll get back to you within 24 hours.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                    What areas do you serve?
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We serve the local community and surrounding areas. Contact us to confirm if we cover your location.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                                    Do you offer payment plans?
+                                </button>
+                            </h2>
+                            <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer flexible payment plans for major procedures. Please discuss your needs with us during consultation.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+                                    What is your response time for emergencies?
+                                </button>
+                            </h2>
+                            <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    For emergency cases, we aim to respond within 30 minutes during business hours and within 1 hour for after-hours emergencies. We prioritize life-threatening situations.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq7">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7">
+                                    Do you provide farm visit services?
+                                </button>
+                            </h2>
+                            <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we provide comprehensive farm visit services including health assessments, vaccination programs, reproductive management, and emergency care. Contact us to schedule a visit.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq8">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8">
+                                    What vaccinations do you provide?
+                                </button>
+                            </h2>
+                            <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We provide vaccinations for cattle, goats, pigs, poultry, dogs, and cats. This includes core vaccines, seasonal vaccines, and custom vaccination programs based on your farm's needs.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq9">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9">
+                                    How do I prepare my animals for a visit?
+                                </button>
+                            </h2>
+                            <div id="collapse9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ensure animals are properly restrained, have clean and dry areas for examination, and gather any previous health records. For specific procedures, we'll provide detailed preparation instructions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq10">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10">
+                                    Do you offer artificial insemination services?
+                                </button>
+                            </h2>
+                            <div id="collapse10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we provide professional artificial insemination services for cattle, goats, and pigs. We use high-quality semen and follow best practices to ensure optimal breeding success rates.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq11">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11">
+                                    What should I do if my animal is sick after hours?
+                                </button>
+                            </h2>
+                            <div id="collapse11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Call our emergency line at +256 751 006759 immediately. We provide 24/7 emergency services for urgent cases. For non-emergency concerns, you can leave a message and we'll respond during business hours.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq12">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12">
+                                    Do you provide health certificates for travel?
+                                </button>
+                            </h2>
+                            <div id="collapse12" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we provide official health certificates for animal travel, both domestic and international. We ensure all animals meet the required health standards and have proper documentation.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact Section -->
+    <section id="emergency" class="py-5 bg-danger text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="mb-3">
+                        <i class="fas fa-phone-alt me-2"></i>
+                        My Emergency Veterinary Services
+                    </h3>
+                    <p class="lead mb-0">I'm available 24/7 for urgent animal health issues. Don't wait - call now!</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="tel:+1234567890" class="btn btn-light btn-lg">
+                        <i class="fas fa-phone me-2"></i>
+                        Call Emergency Line
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-primary mb-3">Dr. Gonzaga</h5>
+                    <p class="mb-3">I provide Professional Veterinary Services for all your animal health needs. I'm committed to providing the highest quality care for farm animals and pets.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#services" class="text-light text-decoration-none">Artificial Insemination</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none">Surgery</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none">Vaccination</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none">Emergency Care</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#about" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#gallery" class="text-light text-decoration-none">Gallery</a></li>
+                        <li><a href="#testimonials" class="text-light text-decoration-none">Testimonials</a></li>
+                        <li><a href="#pricing" class="text-light text-decoration-none">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h6 class="text-primary mb-3">Contact Info</h6>
+                    <div class="contact-info-item mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        <span>0751006759 / 0771685477</span>
+                    </div>
+                    <div class="contact-info-item mb-2">
+                        <i class="fas fa-envelope me-2"></i>
+                        <span>bakulumpagigonzaga@gmail.com</span>
+                    </div>
+                    <div class="contact-info-item mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        <span>Kampala, Uganda</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock me-2"></i>
+                        <span>24/7 Emergency Service</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Dr. Gonzaga. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for animal health</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/256751006759" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Service Details Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalLabel">Service Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="service-modal-content">
+                        <div class="service-modal-icon">
+                            <i id="modalServiceIcon" class="fas fa-stethoscope"></i>
+                        </div>
+                        <h4 id="modalServiceTitle" class="service-modal-title"></h4>
+                        <p id="modalServiceDescription" class="service-modal-description"></p>
+                        
+                        <div class="service-details">
+                            <h6>What I Provide:</h6>
+                            <ul id="modalServiceFeatures" class="service-features-list"></ul>
+                            
+                            <h6>Benefits:</h6>
+                            <ul id="modalServiceBenefits" class="service-benefits-list"></ul>
+                            
+                            <h6 style="display:none">Process:</h6>
+                            <ol id="modalServiceProcess" class="service-process-list" style="display:none"></ol>
+                            
+                            <div class="service-pricing" style="display:none">
+                                <h6 style="display:none">Pricing:</h6>
+                                <p id="modalServicePricing" class="pricing-info"></p>
+                            </div>
+                            
+                            <div class="service-contact">
+                                <h6>Ready to Book?</h6>
+                                <p>Contact me to schedule this service or get more information.</p>
+                                <div class="contact-buttons">
+                                    <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Book Now</a>
+                                    <a href="tel:+256751006759" class="btn btn-outline-primary">Call Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script src="button-fix.js"></script>
+</body>
+</html>
