@@ -63,6 +63,72 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     
+    <!-- Experience Section Styles -->
+    <style>
+        .experience-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #007bff;
+        }
+        
+        .experience-header {
+            margin-bottom: 20px;
+        }
+        
+        .experience-title {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .experience-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .experience-meta span {
+            background: #f8f9fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .experience-organization {
+            font-weight: 600;
+            color: #007bff !important;
+        }
+        
+        .experience-skills {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-skills li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .experience-skills li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .experience-skills li:last-child {
+            border-bottom: none;
+        }
+    </style>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -95,6 +161,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#about">
                             <i class="fas fa-user-md me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">
+                            <i class="fas fa-briefcase me-1"></i>Experience
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -182,9 +253,10 @@
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-title mb-5">About Me</h2>
                     <p class="lead mb-4">
-                        I am a dedicated veterinary professional with extensive experience in farm animal healthcare, 
-                        reproductive management, and disease prevention. I am committed to providing the highest 
-                        quality veterinary services to ensure the health and productivity of your livestock.
+                        Compassionate Veterinarian with background in providing comprehensive support in animal healthcare 
+settings, skilled in diagnostics procedures, patient care and emergency response, ensuring high quality 
+treatment for animals. Strong communicator with a ability to educate animal owners, concerning animal 
+health and welfare, happy pig farmer, trainer, and breeder. 
                     </p>
                     <div class="row mt-5">
                         <div class="col-md-4">
@@ -207,6 +279,177 @@
                                 <h5>Community Service</h5>
                                 <p>Dedicated to supporting farmers and livestock owners in the community</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work/Training Experience Section -->
+    <section id="experience" class="py-5 bg-white" style="position: relative; z-index: 1;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Work/Training Experience</h2>
+                    <p class="lead">My professional journey and specialized training</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Education -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Bachelor of Veterinary Medicine, BVM</h4>
+                            <div class="experience-meta">
+                                <span class="experience-organization">Makerere University</span>
+                                <span class="experience-location">Kampala, Uganda</span>
+                                <span class="experience-date">May 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Poultry Farm Experience -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Poultry Farm Supervisor</h4>
+                            <div class="experience-meta">
+                                <span class="experience-organization">Lubaga Bulwa Zone, Kampala</span>
+                                <span class="experience-date">March 18th - June 22nd, 2024</span>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <h6>Key Responsibilities:</h6>
+                            <ul class="experience-skills">
+                                <li>Vaccination and Vaccine Handling</li>
+                                <li>Feed purchase and formulation</li>
+                                <li>Farm Record keeping</li>
+                                <li>Brooder management</li>
+                                <li>Biosecurity and sanitation management</li>
+                                <li>Diagnosis, control and prevention</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAO Training -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Food and Agriculture Organization of the United Nations (FAO)</h4>
+                            <div class="experience-meta">
+                                <span class="experience-location">Online Course, On 
+                                    the FAO virtual 
+                                    learning center </span>
+                                <span class="experience-date">18th June – 22nd June 
+                                    2024 </span>
+                                    <ul class="experience-skills">
+                                        <li>Sheep and Goat Pox Preparedness for Eastern Africa</li>
+                                        
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roots Africa Training -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Farmer's Training with Roots Africa </h4>
+                            <div class="experience-meta">
+                                <span class="experience-organization">Kiteezi 
+                                    Kampala, Uganda </span>
+                                <span class="experience-date">November 2023 - April 2024</span>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <h6>Training Areas:</h6>
+                            <ul class="experience-skills">
+                                <li>Piggery Artificial Insemination (AI)</li>
+                                <li>Pig ration formulation and feed management</li>
+                                <li>Breeding and Breed selection</li>
+                                <li>Pig structure design and construction</li>
+                                <li>Assist with medical treatment</li>
+                                <li>Writing field reports and entering farmer data</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Kasese Local Government Attachment -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Veterinary Attachment</h4>
+                            <div class="experience-meta">
+                                <span class="experience-organization">Kasese Local Government</span>
+                                <span class="experience-location">Kasese, Uganda</span>
+                                <span class="experience-date">Nov 2024-Dec 2024</span>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <h6>Practice Areas:</h6>
+                            <ul class="experience-skills">
+                                <li>Large animal practice</li>
+                                <li>Small animal practice</li>
+                                <li>Poultry</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nshaara Ranch Attachment -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Ranch Veterinary Attachment</h4>
+                            <div class="experience-meta">
+                                <span class="experience-organization">Under National 
+                                    Adversary Genetics Resource Centre and Data 
+                                    Bank, NAGRIC &DB.</span>
+                                <span class="experience-location">Kiruhula District, Uganda</span>
+                                <span class="experience-date">May 2025-July 2025  </span>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <h6>Specialized Services:</h6>
+                            <ul class="experience-skills">
+                                <li>Large animal Medicine and Surgery (Cattle and Goats)</li>
+                                <li>Pregnancy diagnosis and Artificial Insemination</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Research Project -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Research Project - Gastrointestinal Nematodes in Pigs</h4>
+                            <div class="experience-meta">
+                                <span class="experience-organization">Special Research Project</span>
+                                <span class="experience-location">Bukulula Sub-county, Kalungu District</span>
+                                <span class="experience-date">Jan-June 2025</span>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <h6>Research Activities:</h6>
+                            <ul class="experience-skills">
+                                <li>Concept writing</li>
+                                <li>Proposal writing</li>
+                                <li>Data collection and analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cattle Pregnancy Diagnosis and AI Techniques -->
+                    <div class="experience-item mb-5">
+                        <div class="experience-header">
+                            <h4 class="experience-title">Cattle Pregnancy Diagnosis and  Artificial insemination(AI) and Embryo 
+                                Transfer, synchronization, records keeping and management</h4>
+                            <div class="experience-meta">
+                                <span class="experience-location">Ruhenjere Ranch, Kiruhula District</span>
+                                <span class="experience-date">August 2025</span>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <h6>Course Content:</h6>
+                            <ul class="experience-skills">
+                                <li>Cattle pregnancy diagnosis techniques</li>
+                                <li>Artificial insemination and Embryo Transfer</li>
+                                <li>Records keeping and management</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -509,6 +752,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/1.jpg" alt="Artificial Insemination 1" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Artificial Insemination</h5>
+                            <p>Professional AI procedure</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/2.jpg" alt="Artificial Insemination 2" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Artificial Insemination</h5>
+                            <p>Improving breeding efficiency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/3.jpg" alt="Artificial Insemination 3" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Artificial Insemination</h5>
+                            <p>On-farm service delivery</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/4.jpg" alt="Artificial Insemination 4" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Artificial Insemination</h5>
+                            <p>Enhancing herd genetics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="images/WhatsApp Image 2025-09-17 at 12.53.37_93564c3d.jpg" alt="Artificial Insemination Field Work" class="img-fluid rounded">
+                        <div class="gallery-overlay">
+                            <h5>Artificial Insemination</h5>
+                            <p>Field AI procedure carried out with proper hygiene and technique</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -580,41 +868,42 @@
                 <div class="col-lg-4 mb-4">
                     <div class="contact-form">
                         <h4>Book Appointment</h4>
-                        <form id="appointmentForm">
+                        <div id="formMessage" class="alert" style="display: none;"></div>
+                        <form id="appointmentForm" action="send_email_alternative.php" method="POST">
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                             </div>
                             <div class="mb-3">
-                                <input type="tel" class="form-control" placeholder="Your Phone" required>
+                                <input type="tel" name="phone" class="form-control" placeholder="Your Phone" required>
                             </div>
                             <div class="mb-3">
-                                <select class="form-select" required>
+                                <select name="service" class="form-select" required>
                                     <option value="">Select Service Needed</option>
-                                    <option value="consultation">General Consultation</option>
-                                    <option value="artificial-insemination">Artificial Insemination</option>
-                                    <option value="reproductive-disorders">Reproductive Disorders</option>
-                                    <option value="emergency-surgery">Emergency Surgery</option>
-                                    <option value="vaccination">Vaccination</option>
-                                    <option value="farm-visit">Farm Visit</option>
-                                    <option value="other">Other</option>
+                                    <option value="General Consultation">General Consultation</option>
+                                    <option value="Artificial Insemination">Artificial Insemination</option>
+                                    <option value="Reproductive Disorders">Reproductive Disorders</option>
+                                    <option value="Emergency Surgery">Emergency Surgery</option>
+                                    <option value="Vaccination">Vaccination</option>
+                                    <option value="Farm Visit">Farm Visit</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <input type="date" class="form-control" required>
+                                <input type="date" name="date" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <select class="form-select" required>
+                                <select name="time" class="form-select" required>
                                     <option value="">Preferred Time</option>
-                                    <option value="morning">Morning (8AM - 12PM)</option>
-                                    <option value="afternoon">Afternoon (12PM - 4PM)</option>
-                                    <option value="evening">Evening (4PM - 6PM)</option>
+                                    <option value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</option>
+                                    <option value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</option>
+                                    <option value="Evening (4PM - 6PM)">Evening (4PM - 6PM)</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control" rows="3" placeholder="Additional Notes"></textarea>
+                                <textarea name="notes" class="form-control" rows="3" placeholder="Additional Notes"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-lg w-100">Book Appointment</button>
                         </form>
@@ -1096,75 +1385,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="section-title">My Educational Videos</h2>
-                    <p class="lead">Watch my educational content and see my work in action</p>
+                    <h2 class="section-title">My Videos</h2>
+                    <p class="lead">BSF farming, a feed for pigs</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="images/Operations.jpg" alt="Surgical Procedure" class="img-fluid">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">5:30</div>
+                        <div class="video-player">
+                            <video class="img-fluid" controls>
+                                <source src="videos/BTF feeds for pigs.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="video-content">
-                            <h5>Emergency C-Section Procedure</h5>
-                            <p>Watch Dr. Gonzaga perform an emergency cesarean section on a cow with dystocia, demonstrating professional surgical techniques.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="images/Vaccination.jpg" alt="Vaccination Process" class="img-fluid">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">3:45</div>
+                        <div class="video-player">
+                            <video class="img-fluid" controls>
+                                <source src="videos/WhatsApp Video 2025-09-17 at 12.53.45_d990e7d5.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="video-content">
-                            <h5>Proper Vaccination Techniques</h5>
-                            <p>Learn the correct way to administer vaccinations to livestock, including safety protocols and best practices.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="images/Farm visits.jpg" alt="Farm Visit" class="img-fluid">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">7:20</div>
+                        <div class="video-player">
+                            <video class="img-fluid" controls>
+                                <source src="videos/WhatsApp Video 2025-09-17 at 12.53.58_2617c991.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="video-content">
-                            <h5>Farm Health Assessment</h5>
-                            <p>Join Dr. Gonzaga on a farm visit to see how he conducts comprehensive health assessments and provides recommendations.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="images/Pregnancy diagonsis.jpg" alt="Pregnancy Diagnosis" class="img-fluid">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">4:15</div>
+                        <div class="video-player">
+                            <video class="img-fluid" controls>
+                                <source src="videos/WhatsApp Video 2025-09-17 at 12.53.58_3bf05fe2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="video-content">
-                            <h5>Pregnancy Diagnosis in Cattle</h5>
-                            <p>Learn about different methods of pregnancy diagnosis in cattle and when to use each technique.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center mt-4">
-                    <a href="#" class="btn btn-outline-primary btn-lg">View All Videos</a>
                 </div>
             </div>
         </div>
@@ -1486,5 +1758,52 @@
     <!-- Custom JS -->
     <script src="script.js"></script>
     <script src="button-fix.js"></script>
+    
+    <!-- Contact Form JavaScript -->
+    <script>
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = this;
+        const formData = new FormData(form);
+        const messageDiv = document.getElementById('formMessage');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Send form data
+        fetch('send_email_alternative.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                messageDiv.className = 'alert alert-success';
+                messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
+                form.reset();
+            } else {
+                messageDiv.className = 'alert alert-danger';
+                messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + data.message;
+            }
+            messageDiv.style.display = 'block';
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(error => {
+            messageDiv.className = 'alert alert-danger';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Sorry, there was an error. Please try again or call us directly.';
+            messageDiv.style.display = 'block';
+        })
+        .finally(() => {
+            // Reset button
+            submitBtn.innerHTML = 'Book Appointment';
+            submitBtn.disabled = false;
+        });
+    });
+    </script>
 </body>
 </html>

@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initArticleCards();
     initHeroTilt();
     initTestimonialAutoSlide();
+    initExperienceSection();
     // Removed auto init of service modals to prevent unintended popup on refresh
     
     // Removed temporary test border and click handler on service cards
@@ -2280,3 +2281,50 @@ function initTestimonialAutoSlide() {
     if (rafId) cancelAnimationFrame(rafId);
     rafId = requestAnimationFrame(step);
 }
+
+// Experience Section Enhancement - Simple and Clean
+function initExperienceSection() {
+    const experienceSection = document.getElementById('experience');
+    if (!experienceSection) return;
+    
+    const experienceItems = document.querySelectorAll('.experience-item');
+    
+    // Simple fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const experienceObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 150);
+                experienceObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Initialize items with simple styling
+    experienceItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'all 0.6s ease-out';
+        
+        // Simple hover effect
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+        
+        experienceObserver.observe(item);
+    });
+}
+
