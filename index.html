@@ -860,7 +860,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
                     <div class="contact-form">
                         <h4>Book Appointment</h4>
                         <div id="formMessage" class="alert" style="display: none;"></div>
-                        <form id="appointmentForm" action="send_email_render.php" method="POST">
+                        <form id="appointmentForm" action="send_email_simple_render.php" method="POST">
                             <div class="mb-3">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                             </div>
@@ -1765,7 +1765,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
         submitBtn.disabled = true;
         
         // Send form data
-        fetch('send_email_render.php', {
+        fetch('send_email_simple_render.php', {
             method: 'POST',
             body: formData
         })

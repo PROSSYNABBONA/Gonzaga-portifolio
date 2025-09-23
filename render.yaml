@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: dr-gonzaga-website
+    env: php
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:$PORT
+    envVars:
+      - key: PHP_VERSION
+        value: 8.1
+      - key: SMTP_USERNAME
+        value: prossienabbona20@gmail.com
+      - key: SMTP_PASSWORD
+        value: mruernddvsdbtxhu
+

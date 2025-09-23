@@ -1,0 +1,24 @@
+# Enable PHP processing
+AddType application/x-httpd-php .php
+
+# Allow POST requests
+<Limit GET POST>
+    Order allow,deny
+    Allow from all
+</Limit>
+
+# Enable error reporting for debugging
+php_flag display_errors On
+php_value error_reporting E_ALL
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Handle PHP files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ $1 [L,QSA]
+
