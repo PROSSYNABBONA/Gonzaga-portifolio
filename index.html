@@ -860,7 +860,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
                     <div class="contact-form">
                         <h4>Book Appointment</h4>
                         <div id="formMessage" class="alert" style="display: none;"></div>
-                        <form id="appointmentForm" action="/send_email_simple_render.php" method="POST">
+                        <form id="appointmentForm" action="send_email_simple_render.php" method="POST">
                             <div class="mb-3">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                             </div>
@@ -1808,7 +1808,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
         
         // Try to send via PHP first (if available)
         const formData = new FormData(form);
-        fetch('/send_email_simple_render.php', {
+        fetch('send_email_simple_render.php', {
             method: 'POST',
             body: formData
         })
@@ -1831,7 +1831,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
                     time: time,
                     notes: form.notes.value.trim()
                 });
-                window.location.href = '/contact-form-handler.html?' + params.toString();
+                window.location.href = 'contact-form-handler.html?' + params.toString();
             } else {
                 throw new Error(data.message || 'Unknown error');
             }
@@ -1848,7 +1848,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
                 time: time,
                 notes: form.notes.value.trim()
             });
-            window.location.href = '/contact-form-handler.html?' + params.toString();
+            window.location.href = 'contact-form-handler.html?' + params.toString();
         });
     });
     </script>
