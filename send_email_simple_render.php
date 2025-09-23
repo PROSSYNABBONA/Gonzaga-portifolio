@@ -1,8 +1,22 @@
 <?php
 // Simple email handler for Render deployment
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+// Log the request for debugging
+$log_message = date('Y-m-d H:i:s') . " - Request method: " . $_SERVER["REQUEST_METHOD"] . ", URI: " . $_SERVER["REQUEST_URI"] . "\n";
+file_put_contents('email_log.txt', $log_message, FILE_APPEND | LOCK_EX);
 
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

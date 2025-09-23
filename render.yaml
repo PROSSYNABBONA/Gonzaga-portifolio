@@ -3,7 +3,7 @@ services:
     name: dr-gonzaga-website
     env: php
     buildCommand: ""
-    startCommand: php -S 0.0.0.0:$PORT
+    startCommand: php -S 0.0.0.0:$PORT -t .
     envVars:
       - key: PHP_VERSION
         value: 8.1

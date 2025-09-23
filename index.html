@@ -1769,7 +1769,14 @@ health and welfare, happy pig farmer, trainer, and breeder.
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
                 messageDiv.className = 'alert alert-success';
@@ -1785,8 +1792,9 @@ health and welfare, happy pig farmer, trainer, and breeder.
             messageDiv.scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
+            console.error('Error details:', error);
             messageDiv.className = 'alert alert-danger';
-            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Sorry, there was an error. Please try again or call us directly.';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Sorry, there was an error. Please try again or call us directly. Error: ' + error.message;
             messageDiv.style.display = 'block';
         })
         .finally(() => {
