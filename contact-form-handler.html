@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Handler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: #28a745;
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .appointment-details {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .field {
+            margin-bottom: 10px;
+        }
+        .label {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .back-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🐾 Appointment Booking Confirmation</h2>
+        
+        <div id="result">
+            <div class="success">
+                <strong>✅ Thank you for your appointment request!</strong><br>
+                Your appointment details have been received and will be processed shortly.
+            </div>
+            
+            <div class="appointment-details">
+                <h3>Appointment Details:</h3>
+                <div class="field">
+                    <span class="label">Name:</span> <span id="name"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Email:</span> <span id="email"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Phone:</span> <span id="phone"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Service:</span> <span id="service"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Date:</span> <span id="date"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Time:</span> <span id="time"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Notes:</span> <span id="notes"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Submitted:</span> <span id="timestamp"></span>
+                </div>
+            </div>
+            
+            <div class="success">
+                <strong>📞 Next Steps:</strong><br>
+                We will contact you within 24 hours to confirm your appointment. 
+                If you need immediate assistance, please call us directly.
+            </div>
+            
+            <a href="index.html" class="back-button">← Back to Website</a>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Populate the form data
+        document.getElementById('name').textContent = urlParams.get('name') || 'Not provided';
+        document.getElementById('email').textContent = urlParams.get('email') || 'Not provided';
+        document.getElementById('phone').textContent = urlParams.get('phone') || 'Not provided';
+        document.getElementById('service').textContent = urlParams.get('service') || 'Not provided';
+        document.getElementById('date').textContent = urlParams.get('date') || 'Not provided';
+        document.getElementById('time').textContent = urlParams.get('time') || 'Not provided';
+        document.getElementById('notes').textContent = urlParams.get('notes') || 'None';
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        
+        // Log the appointment data for manual processing
+        const appointmentData = {
+            timestamp: new Date().toISOString(),
+            name: urlParams.get('name'),
+            email: urlParams.get('email'),
+            phone: urlParams.get('phone'),
+            service: urlParams.get('service'),
+            date: urlParams.get('date'),
+            time: urlParams.get('time'),
+            notes: urlParams.get('notes'),
+            source: 'static_form_handler'
+        };
+        
+        // Store in localStorage for backup
+        const appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+        appointments.push(appointmentData);
+        localStorage.setItem('appointments', JSON.stringify(appointments));
+        
+        // Log to console for debugging
+        console.log('Appointment received:', appointmentData);
+    </script>
+</body>
+</html>

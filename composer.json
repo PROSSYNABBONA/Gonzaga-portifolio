@@ -1,0 +1,25 @@
+{
+    "name": "dr-gonzaga/veterinary-website",
+    "description": "Dr. Gonzaga Veterinary Services Website",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'Dr. Gonzaga Veterinary Website installed successfully'"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

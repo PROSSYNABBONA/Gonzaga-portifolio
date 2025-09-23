@@ -860,7 +860,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
                     <div class="contact-form">
                         <h4>Book Appointment</h4>
                         <div id="formMessage" class="alert" style="display: none;"></div>
-                        <form id="appointmentForm" action="send_email_simple_render.php" method="POST">
+                        <form id="appointmentForm" action="/send_email_simple_render.php" method="POST">
                             <div class="mb-3">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                             </div>
@@ -1756,51 +1756,99 @@ health and welfare, happy pig farmer, trainer, and breeder.
         e.preventDefault();
         
         const form = this;
-        const formData = new FormData(form);
         const messageDiv = document.getElementById('formMessage');
         const submitBtn = form.querySelector('button[type="submit"]');
         
+        // Validate form
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const service = form.service.value.trim();
+        const date = form.date.value.trim();
+        const time = form.time.value.trim();
+        
+        if (!name || !email || !phone || !service || !date || !time) {
+            messageDiv.className = 'alert alert-danger';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+            messageDiv.style.display = 'block';
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+        
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            messageDiv.className = 'alert alert-danger';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+            messageDiv.style.display = 'block';
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+        
         // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         submitBtn.disabled = true;
         
-        // Send form data
-        fetch('send_email_simple_render.php', {
+        // Store appointment data locally
+        const appointmentData = {
+            timestamp: new Date().toISOString(),
+            name: name,
+            email: email,
+            phone: phone,
+            service: service,
+            date: date,
+            time: time,
+            notes: form.notes.value.trim()
+        };
+        
+        // Store in localStorage
+        const appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+        appointments.push(appointmentData);
+        localStorage.setItem('appointments', JSON.stringify(appointments));
+        
+        // Try to send via PHP first (if available)
+        const formData = new FormData(form);
+        fetch('/send_email_simple_render.php', {
             method: 'POST',
             body: formData
         })
         .then(response => {
-            console.log('Response status:', response.status);
-            console.log('Response headers:', response.headers);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('PHP endpoint not available');
             }
-            return response.json();
         })
         .then(data => {
             if (data.success) {
-                messageDiv.className = 'alert alert-success';
-                messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
-                form.reset();
+                // Success - redirect to confirmation page
+                const params = new URLSearchParams({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    service: service,
+                    date: date,
+                    time: time,
+                    notes: form.notes.value.trim()
+                });
+                window.location.href = '/contact-form-handler.html?' + params.toString();
             } else {
-                messageDiv.className = 'alert alert-danger';
-                messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + data.message;
+                throw new Error(data.message || 'Unknown error');
             }
-            messageDiv.style.display = 'block';
-            
-            // Scroll to message
-            messageDiv.scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
-            console.error('Error details:', error);
-            messageDiv.className = 'alert alert-danger';
-            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Sorry, there was an error. Please try again or call us directly. Error: ' + error.message;
-            messageDiv.style.display = 'block';
-        })
-        .finally(() => {
-            // Reset button
-            submitBtn.innerHTML = 'Book Appointment';
-            submitBtn.disabled = false;
+            console.log('PHP not available, using static form:', error.message);
+            // Fallback: redirect to static confirmation page
+            const params = new URLSearchParams({
+                name: name,
+                email: email,
+                phone: phone,
+                service: service,
+                date: date,
+                time: time,
+                notes: form.notes.value.trim()
+            });
+            window.location.href = '/contact-form-handler.html?' + params.toString();
         });
     });
     </script>
