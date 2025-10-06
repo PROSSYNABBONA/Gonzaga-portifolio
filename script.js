@@ -1205,13 +1205,15 @@ function initMobileNavToggle() {
             }
         });
         
-        // Keep menu open on nav link taps (user closes with X)
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        // Close the mobile menu when a nav item is clicked
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle), .dropdown-menu .dropdown-item');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 991 && this.dataset.close !== 'true') {
-                    // Prevent Bootstrap from auto-collapsing via default behavior
-                    // (We do nothing here so the menu stays open)
+                if (window.innerWidth <= 991) {
+                    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+                    bsCollapse.hide();
+                    navbarToggler.style.display = 'block';
+                    navbarClose.style.display = 'none';
                 }
             });
         });

@@ -17,6 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $request_uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($request_uri, PHP_URL_PATH);
 
+// Let PHP's built-in server serve existing static files (images, videos, css, js, etc.)
+// When using a router script, returning false delegates to the built-in server
+if (php_sapi_name() === 'cli-server') {
+    $staticPath = __DIR__ . urldecode($path);
+    if (is_file($staticPath)) {
+        return false;
+    }
+}
+
 // Route requests
 if ($path === '/send_email_simple_render.php' || strpos($path, 'send_email_simple_render.php') !== false || $path === '/api/send-appointment') {
     // Handle appointment form submission
