@@ -860,7 +860,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
                     <div class="contact-form">
                         <h4>Book Appointment</h4>
                         <div id="formMessage" class="alert" style="display: none;"></div>
-                        <form id="appointmentForm" action="send_email_simple_render.php" method="POST">
+                        <form id="appointmentForm" action="/send_email_simple_render.php" method="POST">
                             <div class="mb-3">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                             </div>
@@ -1749,6 +1749,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
     <!-- Custom JS -->
     <script src="script.js"></script>
     <script src="button-fix.js"></script>
+    <script src="form-handler.js"></script>
     
     <!-- Contact Form JavaScript -->
     <script>
@@ -1756,6 +1757,7 @@ health and welfare, happy pig farmer, trainer, and breeder.
         e.preventDefault();
         
         const form = this;
+        const formData = new FormData(form);
         const messageDiv = document.getElementById('formMessage');
         const submitBtn = form.querySelector('button[type="submit"]');
         
@@ -1786,69 +1788,43 @@ health and welfare, happy pig farmer, trainer, and breeder.
         }
         
         // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Store appointment data locally
-        const appointmentData = {
-            timestamp: new Date().toISOString(),
-            name: name,
-            email: email,
-            phone: phone,
-            service: service,
-            date: date,
-            time: time,
-            notes: form.notes.value.trim()
-        };
-        
-        // Store in localStorage
-        const appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
-        appointments.push(appointmentData);
-        localStorage.setItem('appointments', JSON.stringify(appointments));
-        
-        // Try to send via PHP first (if available)
-        const formData = new FormData(form);
-        fetch('send_email_simple_render.php', {
+        // Send form data to PHP
+        fetch('/send_email_simple_render.php', {
             method: 'POST',
             body: formData
         })
         .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('PHP endpoint not available');
+            console.log('Response status:', response.status);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+            return response.json();
         })
         .then(data => {
             if (data.success) {
-                // Success - redirect to confirmation page
-                const params = new URLSearchParams({
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    service: service,
-                    date: date,
-                    time: time,
-                    notes: form.notes.value.trim()
-                });
-                window.location.href = 'contact-form-handler.html?' + params.toString();
+                messageDiv.className = 'alert alert-success';
+                messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
+                form.reset();
             } else {
-                throw new Error(data.message || 'Unknown error');
+                messageDiv.className = 'alert alert-danger';
+                messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + data.message;
             }
+            messageDiv.style.display = 'block';
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
-            console.log('PHP not available, using static form:', error.message);
-            // Fallback: redirect to static confirmation page
-            const params = new URLSearchParams({
-                name: name,
-                email: email,
-                phone: phone,
-                service: service,
-                date: date,
-                time: time,
-                notes: form.notes.value.trim()
-            });
-            window.location.href = 'contact-form-handler.html?' + params.toString();
+            console.error('Error details:', error);
+            messageDiv.className = 'alert alert-danger';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Sorry, there was an error. Please try again or call us directly. Error: ' + error.message;
+            messageDiv.style.display = 'block';
+        })
+        .finally(() => {
+            // Reset button
+            submitBtn.innerHTML = 'Book Appointment';
+            submitBtn.disabled = false;
         });
     });
     </script>

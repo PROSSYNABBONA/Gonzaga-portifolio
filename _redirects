@@ -1,0 +1,6 @@
+# Render redirects file
+# This helps with routing for single-page applications
+
+# Redirect all requests to index.php for PHP handling
+/*    /index.php    200
+
