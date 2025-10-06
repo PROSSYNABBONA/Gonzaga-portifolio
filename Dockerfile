@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # Enable useful Apache modules (optional but common)
-RUN a2enmod rewrite
+RUN a2enmod rewrite headers
 
 # Expose HTTP
 EXPOSE 80
