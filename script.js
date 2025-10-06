@@ -1321,38 +1321,9 @@ document.head.appendChild(revealStyle);
 
 // Appointment Form Handler
 function initAppointmentForm() {
-    const appointmentForm = document.getElementById('appointmentForm');
-    
-    if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(appointmentForm);
-            const appointmentData = {
-                name: appointmentForm.querySelector('input[type="text"]').value,
-                email: appointmentForm.querySelector('input[type="email"]').value,
-                phone: appointmentForm.querySelector('input[type="tel"]').value,
-                service: appointmentForm.querySelector('select').value,
-                date: appointmentForm.querySelector('input[type="date"]').value,
-                time: appointmentForm.querySelectorAll('select')[1].value,
-                notes: appointmentForm.querySelector('textarea').value
-            };
-            
-            // Validate form
-            if (!appointmentData.name || !appointmentData.email || !appointmentData.phone || !appointmentData.service || !appointmentData.date || !appointmentData.time) {
-                showNotification('Please fill in all required fields', 'error');
-                return;
-            }
-            
-            // Simulate appointment booking
-            showNotification('Appointment request submitted successfully! We will contact you soon.', 'success');
-            appointmentForm.reset();
-            
-            // In a real application, you would send this data to a server
-            console.log('Appointment Data:', appointmentData);
-        });
-    }
+    // Appointment submission is handled in index.html via fetch to the PHP endpoint.
+    // Intentionally left blank to avoid duplicate submit handlers and validation conflicts.
+    return;
 }
 
 // Video Cards Handler
