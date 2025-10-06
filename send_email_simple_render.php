@@ -14,9 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Resolve writable log/backup locations (prefer /tmp on Render)
+$logFile = getenv('LOG_FILE') ?: (is_writable('/tmp') ? '/tmp/email_log.txt' : __DIR__ . '/email_log.txt');
+$backupFile = getenv('BACKUP_FILE') ?: (is_writable('/tmp') ? '/tmp/appointments_backup.txt' : __DIR__ . '/appointments_backup.txt');
+
 // Log the request for debugging
 $log_message = date('Y-m-d H:i:s') . " - Request method: " . $_SERVER["REQUEST_METHOD"] . ", URI: " . $_SERVER["REQUEST_URI"] . "\n";
-file_put_contents('email_log.txt', $log_message, FILE_APPEND | LOCK_EX);
+@file_put_contents($logFile, $log_message, FILE_APPEND | LOCK_EX);
 
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -173,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email_sent = true;
         } catch (\Throwable $e) {
             $log_message = date('Y-m-d H:i:s') . " - PHPMailer SMTP failed: " . $e->getMessage() . "\n";
-            file_put_contents('email_log.txt', $log_message, FILE_APPEND | LOCK_EX);
+            @file_put_contents($logFile, $log_message, FILE_APPEND | LOCK_EX);
         }
     }
 
@@ -198,13 +202,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'source' => 'render_deployment'
     ];
     
-    $backup_file = 'appointments_backup.txt';
     $backup_line = json_encode($appointment_data) . "\n";
-    file_put_contents($backup_file, $backup_line, FILE_APPEND | LOCK_EX);
+    @file_put_contents($backupFile, $backup_line, FILE_APPEND | LOCK_EX);
     
     // Log the attempt
     $log_message = date('Y-m-d H:i:s') . " - Appointment received on Render. Email sent: " . ($email_sent ? 'Yes' : 'No') . "\n";
-    file_put_contents('email_log.txt', $log_message, FILE_APPEND | LOCK_EX);
+    @file_put_contents($logFile, $log_message, FILE_APPEND | LOCK_EX);
     
     // Always show success to user
     echo json_encode([

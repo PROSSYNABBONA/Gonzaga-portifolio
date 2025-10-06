@@ -15,11 +15,15 @@ function tail_file($path, $maxLines = 200) {
     return implode("\n", $slice) . "\n";
 }
 
-echo "==== email_log.txt (last 200 lines) ====\n";
-echo tail_file(__DIR__ . '/email_log.txt', 200);
+// Prefer /tmp files (Render ephemeral disk)
+$logFile = getenv('LOG_FILE') ?: (is_writable('/tmp') ? '/tmp/email_log.txt' : __DIR__ . '/email_log.txt');
+$backupFile = getenv('BACKUP_FILE') ?: (is_writable('/tmp') ? '/tmp/appointments_backup.txt' : __DIR__ . '/appointments_backup.txt');
 
-echo "\n==== appointments_backup.txt (last 50 lines) ====\n";
-echo tail_file(__DIR__ . '/appointments_backup.txt', 50);
+echo "==== email_log (last 200 lines) ====\n";
+echo tail_file($logFile, 200);
+
+echo "\n==== appointments_backup (last 50 lines) ====\n";
+echo tail_file($backupFile, 50);
 
 ?>
 
