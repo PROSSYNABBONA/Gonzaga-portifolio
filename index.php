@@ -17,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $request_uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($request_uri, PHP_URL_PATH);
 
-// Let PHP's built-in server serve existing static files (images, videos, css, js, etc.)
-// When using a router script, returning false delegates to the built-in server
+// Let PHP's built-in server serve existing static files (images, css, js, etc.)
+// but we handle /videos/ ourselves to provide byte-range support
 if (php_sapi_name() === 'cli-server') {
     $staticPath = __DIR__ . urldecode($path);
-    if (is_file($staticPath)) {
+    if (is_file($staticPath) && strpos($path, '/videos/') !== 0) {
         return false;
     }
 }
