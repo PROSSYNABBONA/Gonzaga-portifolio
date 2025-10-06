@@ -125,10 +125,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "X-Mailer: PHP/" . phpversion();
     
     $email_sent = false;
-    
-    // Try sending email
-    if (mail($to, $subject, $message, $headers)) {
-        $email_sent = true;
+
+    // Try SMTP via PHPMailer if env vars are present
+    $smtpHost = getenv('SMTP_HOST');
+    $smtpUser = getenv('SMTP_USER');
+    $smtpPass = getenv('SMTP_PASS');
+    $smtpPort = getenv('SMTP_PORT') ?: '587';
+    $smtpSecure = strtolower(getenv('SMTP_SECURE') ?: 'tls'); // tls or ssl
+    $smtpFrom = getenv('SMTP_FROM') ?: $smtpUser;
+    $smtpFromName = getenv('SMTP_FROM_NAME') ?: 'Dr. Gonzaga Website';
+    $smtpTo = getenv('SMTP_TO') ?: $to;
+    $smtpCc = getenv('SMTP_CC') ?: $cc;
+
+    if ($smtpHost && $smtpUser && $smtpPass && file_exists(__DIR__ . '/PHPMailer/src/PHPMailer.php')) {
+        try {
+            require_once __DIR__ . '/PHPMailer/src/Exception.php';
+            require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
+            require_once __DIR__ . '/PHPMailer/src/SMTP.php';
+
+            $mailer = new PHPMailer\PHPMailer\PHPMailer(true);
+            $mailer->CharSet = 'UTF-8';
+            $mailer->isSMTP();
+            $mailer->Host = $smtpHost;
+            $mailer->SMTPAuth = true;
+            $mailer->Username = $smtpUser;
+            $mailer->Password = $smtpPass;
+            if ($smtpSecure === 'ssl') {
+                $mailer->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
+                if (!$smtpPort) { $smtpPort = '465'; }
+            } else {
+                $mailer->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+            }
+            $mailer->Port = (int)$smtpPort;
+
+            // Recipients
+            $mailer->setFrom($smtpFrom, $smtpFromName);
+            $mailer->addAddress($smtpTo);
+            if (!empty($smtpCc)) { $mailer->addCC($smtpCc); }
+            if (!empty($email)) { $mailer->addReplyTo($email, $name); }
+
+            // Content
+            $mailer->isHTML(true);
+            $mailer->Subject = $subject;
+            $mailer->Body = $message;
+
+            $mailer->send();
+            $email_sent = true;
+        } catch (\Throwable $e) {
+            $log_message = date('Y-m-d H:i:s') . " - PHPMailer SMTP failed: " . $e->getMessage() . "\n";
+            file_put_contents('email_log.txt', $log_message, FILE_APPEND | LOCK_EX);
+        }
+    }
+
+    // Fallback: Try sending via basic mail() if SMTP didn't send
+    if (!$email_sent) {
+        if (mail($to, $subject, $message, $headers)) {
+            $email_sent = true;
+        }
     }
     
     // Always save to backup file for Render
