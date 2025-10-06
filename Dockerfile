@@ -33,8 +33,10 @@ RUN set -eu; \
       echo "/var/www/html/videos not found, skipping transcode step"; \
     fi
 
-# Enable useful Apache modules (optional but common)
-RUN a2enmod rewrite headers
+# Enable useful Apache modules (headers, rewrite, mime, deflate)
+RUN a2enmod rewrite headers mime deflate \
+    && printf '<Directory /var/www/html>\n    AllowOverride All\n    Require all granted\n</Directory>\n<Directory /var/www/html/videos>\n    AllowOverride All\n    Require all granted\n</Directory>\n' > /etc/apache2/conf-available/allow-htaccess.conf \
+    && a2enconf allow-htaccess
 
 # Expose HTTP
 EXPOSE 80

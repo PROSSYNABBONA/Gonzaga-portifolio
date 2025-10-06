@@ -1,0 +1,10 @@
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set Accept-Ranges "bytes"
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
+
+
