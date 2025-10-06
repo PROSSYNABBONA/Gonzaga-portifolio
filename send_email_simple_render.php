@@ -219,33 +219,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Fallback 2: Try SendGrid HTTP API if configured (avoids SMTP port issues)
+    // Fallback 2: Try Resend HTTP API if configured (avoids SMTP port issues)
+    if (!$email_sent) {
+        $resendKey = getenv('RESEND_API_KEY');
+        if ($resendKey) {
+            @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Falling back to Resend HTTP API\n", FILE_APPEND | LOCK_EX);
+            $payload = [
+                'from' => ($smtpFromName ? ($smtpFromName . ' <' . $smtpFrom . '>') : $smtpFrom),
+                'to' => [$smtpTo],
+                'subject' => $subject,
+                'html' => $message,
+            ];
+            if (!empty($smtpCc)) { $payload['cc'] = [$smtpCc]; }
+            if (!empty($email)) { $payload['reply_to'] = $email; }
+
+            $ch = curl_init('https://api.resend.com/emails');
+            curl_setopt_array($ch, [
+                CURLOPT_POST => true,
+                CURLOPT_HTTPHEADER => [
+                    'Authorization: Bearer ' . $resendKey,
+                    'Content-Type: application/json'
+                ],
+                CURLOPT_POSTFIELDS => json_encode($payload),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 20
+            ]);
+            $resp = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlErr = curl_error($ch);
+            curl_close($ch);
+            if ($httpCode >= 200 && $httpCode < 300) {
+                $email_sent = true;
+                @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Resend API accepted the message (HTTP $httpCode)\n", FILE_APPEND | LOCK_EX);
+            } else {
+                @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Resend API failed: HTTP $httpCode Body: " . substr((string)$resp,0,300) . " CurlErr: $curlErr\n", FILE_APPEND | LOCK_EX);
+            }
+        }
+    }
+
+    // Fallback 3: Try SendGrid HTTP API if configured
     if (!$email_sent) {
         $sgKey = getenv('SENDGRID_API_KEY');
         if ($sgKey) {
             @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Falling back to SendGrid HTTP API\n", FILE_APPEND | LOCK_EX);
             $payload = [
-                'personalizations' => [[
-                    'to' => [[ 'email' => $smtpTo ]],
-                ]],
+                'personalizations' => [[ 'to' => [[ 'email' => $smtpTo ]] ]],
                 'from' => [ 'email' => $smtpFrom, 'name' => $smtpFromName ],
                 'subject' => $subject,
                 'content' => [[ 'type' => 'text/html', 'value' => $message ]]
             ];
-            if (!empty($smtpCc)) {
-                $payload['personalizations'][0]['cc'] = [[ 'email' => $smtpCc ]];
-            }
-            if (!empty($email)) {
-                $payload['reply_to'] = [ 'email' => $email, 'name' => $name ];
-            }
+            if (!empty($smtpCc)) { $payload['personalizations'][0]['cc'] = [[ 'email' => $smtpCc ]]; }
+            if (!empty($email)) { $payload['reply_to'] = [ 'email' => $email, 'name' => $name ]; }
 
             $ch = curl_init('https://api.sendgrid.com/v3/mail/send');
             curl_setopt_array($ch, [
                 CURLOPT_POST => true,
-                CURLOPT_HTTPHEADER => [
-                    'Authorization: Bearer ' . $sgKey,
-                    'Content-Type: application/json'
-                ],
+                CURLOPT_HTTPHEADER => [ 'Authorization: Bearer ' . $sgKey, 'Content-Type: application/json' ],
                 CURLOPT_POSTFIELDS => json_encode($payload),
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_TIMEOUT => 20
