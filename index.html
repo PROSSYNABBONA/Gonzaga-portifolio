@@ -1761,13 +1761,13 @@ health and welfare, happy pig farmer, trainer, and breeder.
         const messageDiv = document.getElementById('formMessage');
         const submitBtn = form.querySelector('button[type="submit"]');
         
-        // Validate form
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
-        const phone = form.phone.value.trim();
-        const service = form.service.value.trim();
-        const date = form.date.value.trim();
-        const time = form.time.value.trim();
+        // Validate form using FormData to avoid name collisions
+        const name = (formData.get('name') || '').trim();
+        const email = (formData.get('email') || '').trim();
+        const phone = (formData.get('phone') || '').trim();
+        const service = (formData.get('service') || '').trim();
+        const date = (formData.get('date') || '').trim();
+        const time = (formData.get('time') || '').trim();
         
         if (!name || !email || !phone || !service || !date || !time) {
             messageDiv.className = 'alert alert-danger';
