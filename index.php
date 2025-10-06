@@ -25,6 +25,8 @@ if ($path === '/send_email_simple_render.php' || strpos($path, 'send_email_simpl
 } elseif ($path === '/test_endpoint.php' || strpos($path, 'test_endpoint.php') !== false) {
     // Test endpoint
     include 'test_endpoint.php';
+} elseif ($path === '/view_logs.php' || strpos($path, 'view_logs.php') !== false) {
+    include 'view_logs.php';
 } else {
     // Serve the main website
     include 'index.html';
