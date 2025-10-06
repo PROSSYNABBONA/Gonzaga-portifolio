@@ -1,4 +1,22 @@
 node_modules
+.git
+.gitignore
+Dockerfile
+.dockerignore
+*.log
+email_log.txt
+appointments_backup.txt
+PHPMailer/PHPMailer-master/test
+PHPMailer/PHPMailer-master/examples
+videos
+before After images
+README.md
+README_RENDER.md
+DEPLOYMENT_*.md
+RENDER_*.md
+WEBSERVICE_DEPLOYMENT_GUIDE.md
+render-static.yaml
+node_modules
 npm-debug.log
 .DS_Store
 .git
