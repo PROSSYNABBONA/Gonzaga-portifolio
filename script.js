@@ -58,8 +58,20 @@ function initSmoothScrolling() {
                     top: offsetTop,
                     behavior: 'smooth'
                 });
-                
-                // Keep mobile menu state unchanged; user will close via X
+                // On small screens, auto-close the mobile menu after selecting a link
+                if (window.innerWidth <= 991) {
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse) {
+                        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarClose = document.querySelector('.navbar-close');
+                    if (navbarToggler && navbarClose) {
+                        navbarToggler.style.display = 'block';
+                        navbarClose.style.display = 'none';
+                    }
+                }
             }
         });
     });
