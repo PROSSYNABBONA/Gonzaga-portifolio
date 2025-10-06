@@ -18,6 +18,26 @@ ini_set('display_errors', 1);
 $logFile = getenv('LOG_FILE') ?: (is_writable('/tmp') ? '/tmp/email_log.txt' : __DIR__ . '/email_log.txt');
 $backupFile = getenv('BACKUP_FILE') ?: (is_writable('/tmp') ? '/tmp/appointments_backup.txt' : __DIR__ . '/appointments_backup.txt');
 
+// Error handlers to capture fatal errors and return JSON
+set_error_handler(function($severity, $message, $file, $line) use ($logFile) {
+    $entry = date('Y-m-d H:i:s') . " - PHP error [$severity] $message in $file:$line\n";
+    @file_put_contents($logFile, $entry, FILE_APPEND | LOCK_EX);
+    return false; // let normal error handling continue
+});
+
+register_shutdown_function(function() use ($logFile) {
+    $e = error_get_last();
+    if ($e && in_array($e['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        $entry = date('Y-m-d H:i:s') . " - PHP fatal: {$e['message']} in {$e['file']}:{$e['line']}\n";
+        @file_put_contents($logFile, $entry, FILE_APPEND | LOCK_EX);
+        if (!headers_sent()) {
+            header('Content-Type: application/json');
+            http_response_code(500);
+        }
+        echo json_encode(['success' => false, 'message' => 'Server error. Please try again later.']);
+    }
+});
+
 // Log the request for debugging
 $log_message = date('Y-m-d H:i:s') . " - Request method: " . $_SERVER["REQUEST_METHOD"] . ", URI: " . $_SERVER["REQUEST_URI"] . "\n";
 @file_put_contents($logFile, $log_message, FILE_APPEND | LOCK_EX);
@@ -35,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $notes = htmlspecialchars(trim($_POST['notes'] ?? ''));
     
     // Basic validation
+    @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Parsed form: {name:$name,email:$email,phone:$phone,service:$service,date:$date,time:$time}\n", FILE_APPEND | LOCK_EX);
     if (empty($name) || empty($email) || empty($phone) || empty($service) || empty($date) || empty($time)) {
         echo json_encode(['success' => false, 'message' => 'Please fill in all required fields.']);
         exit;
@@ -142,6 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $smtpCc = getenv('SMTP_CC') ?: $cc;
 
     if ($smtpHost && $smtpUser && $smtpPass && file_exists(__DIR__ . '/PHPMailer/src/PHPMailer.php')) {
+        @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Attempting SMTP via PHPMailer\n", FILE_APPEND | LOCK_EX);
         try {
             require_once __DIR__ . '/PHPMailer/src/Exception.php';
             require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
@@ -183,6 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Fallback: Try sending via basic mail() if SMTP didn't send
     if (!$email_sent) {
+        @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Falling back to mail()\n", FILE_APPEND | LOCK_EX);
         if (mail($to, $subject, $message, $headers)) {
             $email_sent = true;
         }
