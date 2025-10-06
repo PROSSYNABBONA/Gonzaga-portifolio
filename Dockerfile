@@ -19,18 +19,14 @@ RUN set -eu; \
       for f in /var/www/html/videos/*.mp4; do \
         [ -e "$f" ] || continue; \
         oldc=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nk=1:nw=1 "$f" || true); \
-        echo "Video: $f codec=$oldc"; \
-        if [ "$oldc" != "h264" ]; then \
-          tmp="${f%.mp4}.tmp.mp4"; \
-          if ffmpeg -y -hide_banner -loglevel error -i "$f" -c:v libx264 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "$tmp"; then \
-            mv -f "$tmp" "$f"; \
-            newc=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nk=1:nw=1 "$f" || true); \
-            echo "Transcoded: $f codec_now=$newc"; \
-          else \
-            echo "Skipping $f (transcode failed)"; rm -f "$tmp" || true; \
-          fi; \
+        echo "Video: $f codec=$oldc (forcing transcode to h264/aac)"; \
+        tmp="${f%.mp4}.tmp.mp4"; \
+        if ffmpeg -y -hide_banner -loglevel error -i "$f" -map 0:v:0 -map 0:a? -c:v libx264 -profile:v high -level 4.1 -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -c:a aac -b:a 128k -movflags +faststart "$tmp"; then \
+          mv -f "$tmp" "$f"; \
+          newc=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=nk=1:nw=1 "$f" || true); \
+          echo "Transcoded: $f codec_now=$newc"; \
         else \
-          echo "Already h264: $f"; \
+          echo "Skipping $f (transcode failed)"; rm -f "$tmp" || true; \
         fi; \
       done; \
     else \
