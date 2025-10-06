@@ -176,6 +176,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mailer->SMTPAuth = true;
             $mailer->Username = $smtpUser;
             $mailer->Password = $smtpPass;
+            // Safer defaults on Render
+            $mailer->Timeout = 20;
+            $mailer->SMTPKeepAlive = false;
+            $mailer->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true,
+                ],
+            ];
+            // Capture SMTP debug into our log
+            $mailer->SMTPDebug = 2; // show client/server msgs
+            $mailer->Debugoutput = function($str) use ($logFile) {
+                @file_put_contents($logFile, date('Y-m-d H:i:s') . " - SMTP: " . $str . "\n", FILE_APPEND | LOCK_EX);
+            };
             if ($smtpSecure === 'ssl') {
                 $mailer->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
                 if (!$smtpPort) { $smtpPort = '465'; }
@@ -197,6 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mailer->send();
             $email_sent = true;
+            @file_put_contents($logFile, date('Y-m-d H:i:s') . " - SMTP send() returned success\n", FILE_APPEND | LOCK_EX);
         } catch (\Throwable $e) {
             $log_message = date('Y-m-d H:i:s') . " - PHPMailer SMTP failed: " . $e->getMessage() . "\n";
             @file_put_contents($logFile, $log_message, FILE_APPEND | LOCK_EX);
