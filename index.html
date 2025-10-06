@@ -1796,10 +1796,16 @@ health and welfare, happy pig farmer, trainer, and breeder.
             method: 'POST',
             body: formData
         })
-        .then(response => {
+        .then(async response => {
             console.log('Response status:', response.status);
+            const contentType = response.headers.get('content-type') || '';
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const text = await response.text();
+                throw new Error(`HTTP ${response.status}: ${text.slice(0,200)}`);
+            }
+            if (!contentType.includes('application/json')) {
+                const text = await response.text();
+                throw new Error(`Unexpected content-type: ${contentType}. Body: ${text.slice(0,200)}`);
             }
             return response.json();
         })
