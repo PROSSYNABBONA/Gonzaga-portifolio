@@ -25,4 +25,6 @@ services:
         sync: false
       - key: SMTP_CC
         sync: false
+      - key: SENDGRID_API_KEY
+        sync: false
 

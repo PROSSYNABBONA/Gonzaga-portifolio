@@ -219,7 +219,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Fallback: Try sending via basic mail() if SMTP didn't send
+    // Fallback 2: Try SendGrid HTTP API if configured (avoids SMTP port issues)
+    if (!$email_sent) {
+        $sgKey = getenv('SENDGRID_API_KEY');
+        if ($sgKey) {
+            @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Falling back to SendGrid HTTP API\n", FILE_APPEND | LOCK_EX);
+            $payload = [
+                'personalizations' => [[
+                    'to' => [[ 'email' => $smtpTo ]],
+                ]],
+                'from' => [ 'email' => $smtpFrom, 'name' => $smtpFromName ],
+                'subject' => $subject,
+                'content' => [[ 'type' => 'text/html', 'value' => $message ]]
+            ];
+            if (!empty($smtpCc)) {
+                $payload['personalizations'][0]['cc'] = [[ 'email' => $smtpCc ]];
+            }
+            if (!empty($email)) {
+                $payload['reply_to'] = [ 'email' => $email, 'name' => $name ];
+            }
+
+            $ch = curl_init('https://api.sendgrid.com/v3/mail/send');
+            curl_setopt_array($ch, [
+                CURLOPT_POST => true,
+                CURLOPT_HTTPHEADER => [
+                    'Authorization: Bearer ' . $sgKey,
+                    'Content-Type: application/json'
+                ],
+                CURLOPT_POSTFIELDS => json_encode($payload),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 20
+            ]);
+            $resp = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlErr = curl_error($ch);
+            curl_close($ch);
+            if ($httpCode === 202) {
+                $email_sent = true;
+                @file_put_contents($logFile, date('Y-m-d H:i:s') . " - SendGrid API accepted the message (202)\n", FILE_APPEND | LOCK_EX);
+            } else {
+                @file_put_contents($logFile, date('Y-m-d H:i:s') . " - SendGrid API failed: HTTP $httpCode Body: " . substr((string)$resp,0,300) . " CurlErr: $curlErr\n", FILE_APPEND | LOCK_EX);
+            }
+        }
+    }
+
+    // Final fallback: Try sending via basic mail() if still not sent
     if (!$email_sent) {
         @file_put_contents($logFile, date('Y-m-d H:i:s') . " - Falling back to mail()\n", FILE_APPEND | LOCK_EX);
         if (mail($to, $subject, $message, $headers)) {
