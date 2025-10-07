@@ -8,7 +8,8 @@ email_log.txt
 appointments_backup.txt
 PHPMailer/PHPMailer-master/test
 PHPMailer/PHPMailer-master/examples
-videos
+# include videos folder in build context (was excluded, causing missing assets on Render)
+# videos
 before After images
 README.md
 README_RENDER.md
